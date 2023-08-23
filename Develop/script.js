@@ -30,7 +30,7 @@ var specialCharacters = [
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // Array of lowercase characters to be included in password
-var lowerCased = [
+var lowerCase = [
   "a",
   "b",
   "c",
@@ -60,7 +60,7 @@ var lowerCased = [
 ];
 
 // Array of uppercase characters to be included in password
-var upperCased = [
+var upperCase = [
   "A",
   "B",
   "C",
@@ -89,13 +89,19 @@ var upperCased = [
   "Z",
 ];
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+function getRandomCharacter(array) {
+  var randomIndex = Math.floor(Math.random() * array.length);
+  var randomPasswordChar = array[randomIndex];
+  return randomPasswordChar;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+
+//   passwordText.value = password;
+// }
+
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
