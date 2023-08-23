@@ -95,6 +95,52 @@ function getRandomCharacter(array) {
   return randomPasswordChar;
 }
 
+function generatePassword(){
+  // We need to capture the length of the password
+  // We need to capture which character types they want for the password
+  var passwordLength = prompt("How many characters should the password be?");
+  var hasSpecialChars = confirm("Do you want special characters?");
+  var hasUpperCase = confirm("Do you want upperCase letters?");
+  var hasLowerCase = confirm("Do you want lowerCase letters?");
+  var hasNumbers = confirm("Do you want numbers?");
+
+  var passwordOptions = {
+    passwordLength: passwordLength,
+    hasSpecialChars: hasSpecialChars,
+    hasLowerCase: hasLowerCase,
+    hasUpperCase: hasUpperCase,
+    hasNumbers: hasNumbers,
+  };
+  var possiblePasswordChars = [];
+  var password = [];
+
+  if (passwordOptions.hasSpecialChars) {
+    possiblePasswordChars = possiblePasswordChars.concat(specialCharacters);
+    var randomChar = getRandomCharacter(specialCharacters);
+    password.push(randomChar);
+}
+if (passwordOptions.hasNumbers) {
+    possiblePasswordChars = possiblePasswordChars.concat(hasNumbers);
+    var randomChar = getRandomCharacter(hasNumbers);
+    password.push(randomChar);
+}
+if (passwordOptions.hasUpperCase) {
+    possiblePasswordChars = possiblePasswordChars.concat(hasUpperCase);
+    var randomChar = getRandomCharacter(hasUpperCase);
+    password.push(randomChar);
+}
+if (passwordOptions.hasLowerCase) {
+    possiblePasswordChars = possiblePasswordChars.concat(hasLowerCase);
+    var randomChar = getRandomCharacter(hasLowerCase);
+    password.push(randomChar);
+}
+​
+for (var i = 0; i < passwordOptions.length - password.length; i++) {
+    var randomChar = getRandomCharacter(possiblePasswordChars);
+    password.push(randomChar);
+}
+}
+
 // // Write password to the #password input
 // function writePassword() {
 //   var password = generatePassword();
